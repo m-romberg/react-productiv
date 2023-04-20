@@ -7,7 +7,6 @@ import React from "react";
  *
  * { EditableTodo, TopTodo } -> Todo
  **/
-// TODO: does this need to be in brackets?
 // props = {todo: {title, description, priority}}
 //props = { title, description, priority }
 function Todo( { todo = {}}) {

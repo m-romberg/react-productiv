@@ -10,7 +10,6 @@ import Todo from "./Todo";
  * TodoApp -> TopTodo
 
  */
-// TODO: does this need to be in brackets?
 function TopTodo({todos}) {
   console.log("TopTodo component ran");
   console.log("TopTodo todos", todos);
