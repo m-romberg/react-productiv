@@ -10,13 +10,34 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({handleSave, initialFormData}) {
+function TodoForm({handleSave, initialFormData=[]}) {
+  const initialState = {title: initialFormData.title,
+    description: initialFormData.description,
+    priority: initialFormData.priority};
 
+
+  const [formData, setFormData] = useState({
+    title: initialFormData.title,
+    description: initialFormData.description,
+    priority: initialFormData.priority,
+});
   /** Update form input. */
-  function handleChange(evt) { }
+  function handleChange(evt) {
+    const fieldName = evt.target.name;
+    const value = evt.target.value;
+
+    setFormData(currData => {
+      currData[fieldName] = value;
+      return {...currData};
+    })
+  }
 
   /** Call parent function and clear form. */
-  function handleSubmit(evt) { }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    handleSave(formData);
+    setFormData(initialState);
+  }
 
   return (
       <form className="NewTodoForm" onSubmit={handleSubmit}>
