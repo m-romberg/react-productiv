@@ -8,8 +8,13 @@ import React from "react";
  * { EditableTodo, TopTodo } -> Todo
  **/
 // TODO: does this need to be in brackets?
-function Todo(todo) {
-  const {title, description, priority} = todo;
+// props = {todo: {title, description, priority}}
+//props = { title, description, priority }
+function Todo( { todo = {}}) {
+  console.log("Todo component ran");
+  console.log("Todo Todo", todo );
+  const {title, description, priority}  = todo;
+  console.log("TODO {title, description, priority}", {title, description, priority});
   return (
       <div className="Todo">
         <div><b>{title}</b> <small>(priority: {priority})</small></div>
