@@ -22,6 +22,7 @@ function EditableTodo({ todo, update, remove }) {
   // console.log('todo inside EditableTodo', todo);
 
   /** Toggle if this is being edited */
+  //TODO: fix function name
   function toggleEdit() {
     setIsEditing(true);
   }
