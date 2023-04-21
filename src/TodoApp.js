@@ -41,6 +41,9 @@ function TodoApp({ initialTodos = [] }) {
 
   /** delete a todo by id */
   function remove(id) {
+    const filteredTodos = todos.filter(todo => todo.id !== id);
+    console.log('&&&&&&&filteredTodos in remove', filteredTodos)
+    setTodos(filteredTodos);
   }
 
   return (
