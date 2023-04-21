@@ -42,6 +42,7 @@ function App() {
           ]} />
 
           <Footer />
+
         </section>
       </main>
   );

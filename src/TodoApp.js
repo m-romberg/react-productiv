@@ -19,20 +19,23 @@ import TodoForm from "./TodoForm";
 function TodoApp({ initialTodos = [] }) {
   console.log("TodoApp component ran");
   const [todos, setTodos] = useState(initialTodos);
-  console.log("TodoApp state, todos", todos);
+  console.log("___________-------TodoApp state, todos", todos);
 
   /** add a new todo to list */
   function create(todo) {
+
     let newTodo = {...todo, id: uuid()};
     setTodos(todos => [...todos, newTodo]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+    console.log('UpdatedTodo in update ____________', updatedTodo)
     //reduce todos to where id matches updatedTodo
-
-    const updateTodo = todos.reduce(todo => todo.id === updatedTodo.id ? updatedTodo : todo );
-    setTodos(todos => [...todos, updateTodo]);
+    console.log('********************************updateTodo ran');
+    const updatedTodos = todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo );
+    console.log('___________________________updateTodo inside update', updatedTodos);
+    setTodos(updatedTodos);
 
   }
 
