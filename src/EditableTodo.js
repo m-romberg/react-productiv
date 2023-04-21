@@ -24,12 +24,12 @@ function EditableTodo({todo, update, remove}) {
     setIsEditing(true);
   }
   /** Call remove fn passed to this. */
-  function handleDelete(remove) {
+  function handleDelete() {
     remove();
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData, update) {
+  function handleSave(formData) {
     update(formData);
     setIsEditing(false);
   }

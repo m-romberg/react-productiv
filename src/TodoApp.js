@@ -31,7 +31,7 @@ function TodoApp({ initialTodos = [] }) {
   function update(updatedTodo) {
     //reduce todos to where id matches updatedTodo
 
-    const updateTodo = todos.reduce(todo => todo.id === updatedTodo.id ? updatedTodo : todo )
+    const updateTodo = todos.reduce(todo => todo.id === updatedTodo.id ? updatedTodo : todo );
     setTodos(todos => [...todos, updateTodo]);
 
   }
