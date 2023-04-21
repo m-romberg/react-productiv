@@ -11,8 +11,8 @@ import Todo from "./Todo";
 
  */
 function TopTodo({todos}) {
-  console.log("TopTodo component ran");
-  console.log("TopTodo todos", todos);
+  // console.log("TopTodo component ran");
+  // console.log("TopTodo todos", todos);
 
   // lowest-priority # is the highest priority
   let top = todos.reduce(

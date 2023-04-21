@@ -17,32 +17,31 @@ import TodoForm from "./TodoForm";
  */
 
 function TodoApp({ initialTodos = [] }) {
-  console.log("TodoApp component ran");
+  // console.log("TodoApp component ran");
   const [todos, setTodos] = useState(initialTodos);
-  console.log("___________-------TodoApp state, todos", todos);
+  // console.log("___________-------TodoApp state, todos", todos);
 
   /** add a new todo to list */
   function create(todo) {
-
-    let newTodo = {...todo, id: uuid()};
+    let newTodo = { ...todo, id: uuid() };
     setTodos(todos => [...todos, newTodo]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    console.log('UpdatedTodo in update ____________', updatedTodo)
+    // console.log('UpdatedTodo in update ____________', updatedTodo);
     //reduce todos to where id matches updatedTodo
-    console.log('********************************updateTodo ran');
-    const updatedTodos = todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo );
-    console.log('___________________________updateTodo inside update', updatedTodos);
-    setTodos(updatedTodos);
-
+    // console.log('********************************updateTodo ran');
+    // const updatedTodos = todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo);
+    // console.log('___________________________updateTodo inside update', updatedTodos);
+    setTodos(todos =>
+      todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo));
   }
 
   /** delete a todo by id */
   function remove(id) {
     const filteredTodos = todos.filter(todo => todo.id !== id);
-    console.log('&&&&&&&filteredTodos in remove', filteredTodos)
+    // console.log('&&&&&&&filteredTodos in remove', filteredTodos);
     setTodos(filteredTodos);
   }
 
@@ -60,11 +59,16 @@ function TodoApp({ initialTodos = [] }) {
         </div>
 
         <div className="col-md-6">
-          {/* (if no top todo, omit this whole section) */}
-          <section className="mb-4">
-            <h3>Top Todo</h3>
-            <TopTodo todos={todos} />
-          </section>
+
+          {todos.length > 0
+            ?
+            <section className="mb-4">
+              <h3>Top Todo</h3>
+              <TopTodo todos={todos} />
+            </section>
+            :
+            null
+          }
 
           <section>
             <h3 className="mb-3">Add Nü</h3>

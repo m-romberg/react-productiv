@@ -7,19 +7,26 @@ import React, { useState } from "react";
  * - initialFormData
  * - handleSave: function to call in parent.
  *
+ * State:
+ * - formData - {title, description, priority}
+ *
+ *
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({ handleSave, initialFormData = {title:"", description:"", priority:1} }) {
+function TodoForm({
+  handleSave,
+  initialFormData = { title: "", description: "", priority: 1 } }) {
+
   const initialState = {
     title: initialFormData.title,
     description: initialFormData.description,
     priority: initialFormData.priority
   };
-
-  console.log("TodoForm initial state", initialState);
+  // console.log("TodoForm initial state", initialState);
 
   const [formData, setFormData] = useState(initialState);
+
   /** Update form input. */
   function handleChange(evt) {
     const fieldName = evt.target.name;
@@ -33,9 +40,9 @@ function TodoForm({ handleSave, initialFormData = {title:"", description:"", pri
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
-    console.log("E-----------------------INITIAL STATE-----------------------", initialState);
+    // console.log("E-----------------------INITIAL STATE-----------------------", initialState);
     evt.preventDefault();
-    console.log("E-----------------------INITIAL STATE-----------------------", formData);
+    // console.log("E-----------------------INITIAL STATE-----------------------", formData);
     handleSave(formData);
     setFormData(initialState);
 
